@@ -5,8 +5,18 @@ import Logo from '../assets/logo.png';
 import About from './about';
 import Product from './product';
 import Count from './Count';
+import store from '../store';
 
 class home extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            Num:store.getState()
+        }
+        store.subscribe(() => {
+            this.setState({Num:store.getState()})
+        })
+    }
     logout = () => {
         //清除sessionStorage里面的用户登录的信息
         sessionStorage.clear();
@@ -66,7 +76,7 @@ class home extends Component {
                     </div>
                 </main>
                 <div className="footer has-background-light">
-                    copyright@google.com
+                    copyright@google.com   ={this.state.Num}=
                 </div>
             </div>
         );
