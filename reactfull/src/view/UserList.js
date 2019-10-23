@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import store from '../store';
 import { UserListActionCreators } from '../actions/UserListAction';
-import { Popconfirm } from 'antd';
+import { Popconfirm, message } from 'antd';
 
 class UserList extends Component {
     constructor(props) {
@@ -25,7 +25,7 @@ class UserList extends Component {
         axios.get('http://yapi.demo.qunar.com/mock/14782/api/test/raw/:id/%7Bname%7D')
             .then(res => {
                 //把data放到store.state里面去
-                // console.log(res.data)
+                console.log(res.data)
 
                 //向store发送一个action 加载用户数据
                 store.dispatch(UserListActionCreators.LoadUserListAction(res.data.data.userlist))
@@ -33,7 +33,15 @@ class UserList extends Component {
     }
 
     delUser = (id) => {
-        console.log(id);
+        axios.delete('http://yapi.demo.qunar.com/mock/14782/api/test/raw/:id/%7Bname%7D/' + id)
+        .then(res => {
+            //提示删除成功 把redux中的数据移除掉 
+            message.info('Delete Success!');
+            store.dispatch(UserListActionCreators.RemoveUserAction(id));         
+        })
+        .catch(() => {
+            message.error('Delete Failed! Try again!');
+        })
     }
 
     render() {
