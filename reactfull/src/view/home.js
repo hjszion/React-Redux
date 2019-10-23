@@ -13,7 +13,8 @@ class home extends Component {
         this.state = {
             Num:store.getState()
         }
-        store.subscribe(() => {
+        //当store里面的state发生改变的时候 会自动触发绑定函数执行
+        store.subscribe(() => {  
             this.setState({Num:store.getState()})
         })
     }

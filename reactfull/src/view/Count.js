@@ -17,7 +17,11 @@ class Count extends Component {
 
     addNum = () => {
         //通过store触发一个 加1的action
-        store.dispatch(ActionCreators.AddActionCreator(1))
+        store.dispatch(ActionCreators.AddActionCreator(1))   //1 == payload of AddActionCreator()
+    }
+    minNum = () => {
+        //通过store触发一个 减1的action
+        store.dispatch(ActionCreators.MinusActionCreator(1))
     }
 
     render() {
@@ -26,7 +30,7 @@ class Count extends Component {
                 <h3>Data in Store:{this.state.Num}</h3>
                 <hr/>
                 <input onClick={this.addNum} className="button is-info" type="button" value="+1" />
-                <input className="button is-danger" type="button" value="-1" />
+                <input onClick={this.minNum} className="button is-danger" type="button" value="-1" />
             </div>
         );
     }
