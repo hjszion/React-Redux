@@ -4,6 +4,21 @@ import store from '../store';
 import { UserListActionCreators } from '../actions/UserListAction';
 
 class UserList extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            UserList:store.getState().UserList,
+            unsubscribe:store.subscribe(() => {
+                this.setState({
+                    UserList:store.getState().UserList
+                })
+            })
+        };
+    }
+    componentWillUnmount(){
+        this.state.unsubscribe();   //移除监听
+    }
+
     componentDidMount(){
         //加载数据
         axios.get('http://yapi.demo.qunar.com/mock/14782/api/test/raw/:id/%7Bname%7D')
@@ -15,10 +30,36 @@ class UserList extends Component {
             store.dispatch(UserListActionCreators.LoadUserListAction(res.data.data.userlist))
         });
     }
+
     render() {
         return (
             <div>
-                UserList
+                <h3 className="title">UserList</h3>
+                <table className="table is-striped is-hoverable is-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>UserName</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Delete</th>
+                            <th>Remark</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.UserList.map((item, index) => (  
+                            <tr key={index}>
+                                <td>{item.ID}</td>
+                                <td>{item.UserName}</td>
+                                <td>{item.Address}</td>
+                                <td>{item.Phone}</td>
+                                <td>{item.Del?'yes':'no'}</td>
+                                <td>{item.Remark}</td>
+                            </tr>
+                        )
+                        )}
+                    </tbody>
+                </table>
             </div>
         );
     }
