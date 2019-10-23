@@ -23,6 +23,10 @@ class Count extends Component {
         //通过store触发一个 减1的action
         store.dispatch(ActionCreators.MinusActionCreator(1))
     }
+    replace = () => {
+        //通过store触发一个 replace的action
+        store.dispatch(ActionCreators.ReplaceActionCreator(Date.now()))
+    }
 
     render() {
         return (
@@ -31,6 +35,7 @@ class Count extends Component {
                 <hr/>
                 <input onClick={this.addNum} className="button is-info" type="button" value="+1" />
                 <input onClick={this.minNum} className="button is-danger" type="button" value="-1" />
+                <input onClick={this.replace} className="button is-info" type="button" value="Replace-Value" />
             </div>
         );
     }
