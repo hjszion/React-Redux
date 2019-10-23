@@ -12,7 +12,7 @@ class UserList extends Component {
             // console.log(res.data)
             
             //向store发送一个action 加载用户数据
-            store.dispatch(UserListActionCreators.LoadUserListAction(res.data.data))
+            store.dispatch(UserListActionCreators.LoadUserListAction(res.data.data.userlist))
         });
     }
     render() {
