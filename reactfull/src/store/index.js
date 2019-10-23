@@ -32,7 +32,7 @@ export const ActionCreators = {
 }
 
 //reducer: 唯一修改store中的数据的方法 接收两个参数 第一个参数是之前的state 第二个参数 当前action
-function rootReducer(preState = 0, action) {
+function rootReducer(preState = 0, action) {   //这里设定了preState的默认值为0
     //根据当前action的不同 对preState做一些修改或者做一些处理 然后返回一个新的状态
     switch (action.type) {
         case ActionTypes.ADD_NUM:

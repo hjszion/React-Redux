@@ -38,6 +38,7 @@ class home extends Component {
                             <Link className="navbar-item" to={`${match.path}/app`}>HomePage</Link>
                             <Link className="navbar-item" to={`${match.path}/product`}>Product</Link>
                             <Link className="navbar-item" to={`${match.path}/cases`}>SuccessCase</Link>
+                            <Link className="navbar-item" to={`${match.path}/count`}>Count</Link>
                             <Link className="navbar-item" to={`${match.path}/about`}>About</Link>
                         </div>
                         <div className="navbar-end">
