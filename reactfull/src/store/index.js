@@ -50,7 +50,8 @@ function rootReducer(preState = 0, action) {   //这里设定了preState的默�
 //dispatch(action)
 //subscribe(fn)
 //state:状态 也就是数据:state: count, num
-const store = createStore(rootReducer);
+const store = createStore(rootReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 export default store;
 
