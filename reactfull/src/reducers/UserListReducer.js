@@ -1,1 +1,3 @@
-export default function UserListReducer(preState => [])
+export default function UserListReducer(preState = [], action){
+    return preState;
+}

@@ -11,11 +11,11 @@ class home extends Component {
     constructor(props){
         super(props);
         this.state = {
-            Num:store.getState()
+            Num:store.getState().Num
         }
         //当store里面的state发生改变的时候 会自动触发绑定函数执行
         store.subscribe(() => {  
-            this.setState({Num:store.getState()})
+            this.setState({Num:store.getState().Num})
         })
     }
     logout = () => {

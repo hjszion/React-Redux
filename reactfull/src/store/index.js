@@ -1,4 +1,5 @@
 import { createStore } from 'redux';
+import rootReducer from '../reducers';
 
 //reducer: 唯一修改store中的数据的方法 接收两个参数 第一个参数是之前的state 第二个参数 当前action
 
