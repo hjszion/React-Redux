@@ -3,6 +3,7 @@ import {HashRouter as Router, Link, Route, Redirect, Switch} from 'react-router-
 import Login from './view/Login';
 import Empty from './view/empty';
 import Home from './view/home';
+import 'antd/dist/antd.css';
 
 class App extends Component {
     checkUserState(){
