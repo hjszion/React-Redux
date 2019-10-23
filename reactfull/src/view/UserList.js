@@ -6,7 +6,7 @@ import { UserListActionCreators } from '../actions/UserListAction';
 class UserList extends Component {
     componentDidMount(){
         //加载数据
-        axios.get('http://yapi.demo.qunar.com/mock/7378/api/userlist')
+        axios.get('http://yapi.demo.qunar.com/mock/14782/api/test/raw/:id/%7Bname%7D')
         .then(res => {
             //把data放到store.state里面去
             // console.log(res.data)
