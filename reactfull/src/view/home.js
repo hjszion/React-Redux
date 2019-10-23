@@ -5,6 +5,8 @@ import Logo from '../assets/logo.png';
 import About from './about';
 import Product from './product';
 import Count from './Count';
+import UserList from "./UserList";
+
 import store from '../store';
 
 class home extends Component {
@@ -41,6 +43,7 @@ class home extends Component {
                             <Link className="navbar-item" to={`${match.path}/cases`}>SuccessCase</Link>
                             <Link className="navbar-item" to={`${match.path}/count`}>Count</Link>
                             <Link className="navbar-item" to={`${match.path}/about`}>About</Link>
+                            <Link className="navbar-item" to={`${match.path}/userlist`}>UserList</Link>
                         </div>
                         <div className="navbar-end">
                             <button onClick={this.logout} className="button is-danger">Logout</button>
@@ -60,12 +63,15 @@ class home extends Component {
                         <Link className="navbar-item" to={`${match.path}/count`}>Count</Link>
                         <br/>
                         <Link className="navbar-item" to={`${match.path}/about`}>About</Link>
+                        <br/>
+                        <Link className="navbar-item" to={`${match.path}/userlist`}>UserListManagement</Link>
                     </div>
                     <div className="column has-background-primary">
                         <Switch>
                             <Route path={`${match.path}/about`} component={About}></Route>
                             <Route path={`${match.path}/product`} component={Product}></Route>
                             <Route path={`${match.path}/count`} component={Count}></Route>
+                            <Route path={`${match.path}/userlist`} component={UserList}></Route>
                             <Route render={() => {
                                 return (
                                     <div className="hero">
