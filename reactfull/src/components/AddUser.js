@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal } from 'antd';
+import { Modal, message } from 'antd';
 
 class AddUser extends Component {
     state={
@@ -15,12 +15,39 @@ class AddUser extends Component {
             [e.target.name]:e.target.value
         })
     }
+
+    getAddUser = () => {
+        return {
+            UserName: this.state.UserName,
+            Address: this.state.Address,
+            Remark: this.state.Remark,
+            Phone: this.state.Phone,
+            Id: Date.now(),
+            Del: false
+        }
+    }
     
     render() {
         return (
             <div>
                <button onClick={() => this.setState({visible:true})} className="button is-warning">
-                   <Modal title='AddUser' okText="Add" cancelText="cancel" visible={ this.state.visible } onCancel={() => this.setState({visible:false})}>
+                   <Modal 
+                   title='AddUser' 
+                   okText="Add" 
+                   cancelText="cancel"
+                   visible={ this.state.visible } 
+                   onCancel={() => this.setState({visible:false})} 
+                   onOk={() => 
+                    this.props.addUser(this.getAddUser())
+                    .then(res => {
+                        message.info('add success!');
+                        this.setState({visible:false})
+                    })
+                    .catch(() => {
+                        message.error('add failed, try again!');
+                    })
+                   }
+                   >
                        <table className="table table is-fullwidth">
                            <tbody>
                                <tr>
