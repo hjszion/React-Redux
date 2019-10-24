@@ -1,30 +1,32 @@
-import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom';
+import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom';
+class About extends Component {
 
-class about extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            login:true
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      login: true
     }
-    render() {
-        console.log(this.props);
-        return (
-            <div>
-                About!
-                <input type="button" value="Logout2Home" onClick={() => this.setState({login:false})}></input>
+  }
 
-                {!this.state.login && <Redirect to="/home"></Redirect>}
+  render () {
+    return (
+      <div>
+        about!
 
-                <p>
-                    ==={
-                        this.props.location.pathname
-                    }===
-                </p>
-            </div>
-        );
-    }
+        <input 
+          onClick={ () => this.setState({login: false})}
+          type="button" value="登出，跳转到首页"/>
+
+        { !this.state.login && <Redirect to="/"></Redirect> }
+        <p>
+          ==={
+            this.props.location.pathname
+          }====
+        </p>
+      </div>
+    )
+  }
 }
 
-export default about;
+export default About

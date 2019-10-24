@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
-class empty extends Component {
-    render() {
-        return (
-            <div>
-                404-Page!
-                <link to="/">Back2Home</link>
-            </div>
-        );
-    }
+class Eempty extends Component {
+  render () {
+    return (
+      <div>
+        404！
+        <Link to="/">回到首页</Link>
+      </div>
+    )
+  }
 }
 
-export default empty;
+export default Eempty

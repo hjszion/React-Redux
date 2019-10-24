@@ -10,9 +10,11 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 //dispatch(action)
 //subscribe(fn)
 //state:状态 也就是数据:state: count, num
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk))
-    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()   //在浏览器下方显示redux插件
-    );   
+// const store = createStore(rootReducer,
+//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()   //在浏览器下方显示redux插件
+//     ); 
+  
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 export default store;
 

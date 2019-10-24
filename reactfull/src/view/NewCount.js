@@ -1,50 +1,58 @@
-//rrdc 所生成的 react-redux 组件模版
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { NumActionCreators } from '../actions/NumAction';
+import { UserListActionCreators } from '../actions/UserListAction';
+import UserRow from '../components/UserRow';
+import AddUser from '../components/AddUser';
 
-//把容器组件的状态映射到UI组件的props里面去 state是redux里面的状态数据
 function mapStateToProps(state) {
-    return {
-        WebSite:'google.com',
-        Num:state.Num
-    };
+  return {
+    UserList: state.UserList
+  };
 }
 
-//dispatch 是 redux中分发action的api函数
-//事件逻辑都是放在这里 映射给UI组件的方法
 function mapDispatchToProps(dispatch) {
-    return {
-        addNum(num){
-            dispatch(NumActionCreators.AddActionCreator(num));
-        },
-        minusNum(num){
-           dispatch(NumActionCreators.MinusActionCreator(num));
-        }
-    };
+  return {
+    loadUserList: () => dispatch(UserListActionCreators.LoadUserListAsyncAction()),
+    delUser: (id) => dispatch(UserListActionCreators.RemoveUserAsyncAction(id)),
+    updateUser: (user) => dispatch(UserListActionCreators.UpdateUserAsynAction(user)),
+    addUser: (user) => dispatch(UserListActionCreators.AddUserAsynAction(user))
+  };
 }
 
-//UI组件 负责展示逻辑和事件绑定
-class NewCount extends Component {
-    render() {
-        return (
-            <div>
-                <p>
-                    This is state from ourselves: { this.props.WebSite }
-                </p>
-                <p>
-                    Get Data-State from Redux: { this.props.WebSite }
-                </p>
-                <button onClick={() => this.props.addNum(1)}>+1</button>
-                <button onClikc={() => {this.props.minusNum(1)}}>-1</button>
-            </div>
-        );
-    }
+class NewUserList extends Component {
+  constructor(props) {
+    super(props);
+    this.props.loadUserList();
+  }
+  render() {
+    return (
+      <div>
+        <h3 className="title">用户列表</h3>
+        <AddUser addUser={ this.props.addUser }></AddUser>
+        <table className="table is-striped is-hoverable is-bordered is-fullwidth">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>用户名</th>
+              <th>地址</th>
+              <th>电话</th>
+              <th>是否删除</th>
+              <th>备注</th>
+              <th>编辑</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              this.props.UserList.map( (item, index) => <UserRow updateUser={ this.props.updateUser } saveUser={ this.props.saveUser } delUser={ this.props.delUser } key={index} User={item}></UserRow>)
+            }
+          </tbody>
+        </table>
+      </div>
+    );
+  }
 }
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(NewCount);
-
+  mapStateToProps,
+  mapDispatchToProps
+)(NewUserList);
