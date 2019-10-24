@@ -5,7 +5,7 @@ import  { HashRouter as Router, Link, Route, NavLink, Switch } from 'react-route
 import Home from './view/Home';
 import About from './view/About';
 import Product from './view/Product';
-import Eempty from './view/Eempty';
+import Empty from './view/Empty';
 
 class App extends Component {
   render() {
@@ -56,7 +56,7 @@ class App extends Component {
                 }}            
               ></Route>
               {/* 兜底的404组件页面 */}
-              <Route component={ Eempty }></Route>
+              <Route component={ Empty }></Route>
             </Switch>
           </div>
         </Router>

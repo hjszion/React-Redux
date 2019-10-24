@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
-class Eempty extends Component {
+class Empty extends Component {
   render () {
     return (
       <div>
@@ -12,4 +12,4 @@ class Eempty extends Component {
   }
 }
 
-export default Eempty
+export default Empty
