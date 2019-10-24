@@ -44,6 +44,22 @@ export const UserListActionCreators = {
                     dispatch(UserListActionCreators.RemoveUserAction(payload));
                 });
         }
+    },
+    UpdateUserAction(payload){
+        return {
+            type: UserListActionTypes.UPDATE_USER,
+            payload
+        }
+    },
+    UpdateUserAsyncAction(payload){
+        return(dispatch, getState) => {
+            return axios
+                   .put('http://localhost:3009/userlist/' + payload.Id, payload)
+                   .then(res => {
+                       //修改redux里面的数据
+                       dispatch(this.UpdateUserAction(res.data));
+                   })
+        }
     }
 }
 

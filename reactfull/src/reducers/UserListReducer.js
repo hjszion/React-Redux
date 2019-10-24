@@ -8,6 +8,9 @@ export default function UserListReducer(preState = [], action){
             return [...preState, action.payload]
         case UserListActionTypes.REMOVE_USER:
             return preState.filter(item => item.Id !== action.payload)
+        case UserListActionTypes.UPDATE_USER:
+            const replaceIndex = preState.findIndex(item => item.Id === action.Id)
+            return [...preState];   //reducer 处理完成之后都会返回一个新的状态
         default:
             return preState;
     }

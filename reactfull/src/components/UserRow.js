@@ -29,10 +29,10 @@ class UserRow extends Component {
                             <td><input onChange={this.handlerChange} type="text" name="UserName" value={EditUser.UserName} /></td>
                             <td><input onChange={this.handlerChange} type="text" name="Address" value={EditUser.Address} /></td>
                             <td><input onChange={this.handlerChange} type="text" name="Phone" value={EditUser.Phone} /></td>
-                            <td>DeleteOrNot<input onChange={this.handlerChange} type="checkbox" name="Del" value={EditUser.Del} /></td>
+                            <td>DeleteOrNot<input onChange={this.handlerChange} type="checkbox" name="Del" checked={EditUser.Del} /></td>
                             <td><input onChange={this.handlerChange} type="checkbox" name="Remark" value={EditUser.Remark} /></td>
                             <td>
-                                <button onClick={() => this.setState({isEdit:true})} className="button is-primary">Save</button>
+                                <button onClick={() => this.props.updateUser(EditUser)} className="button is-primary">Save</button>
                                 &nbsp;
                                 <button onClick={() => this.setState({isEdit:false})} className="button is-danger">Cancel</button>
                             </td>
