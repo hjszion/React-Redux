@@ -27,7 +27,7 @@ class NewUserList extends Component {
         return (
             <div>
                 <h3 className="title">UserList</h3>
-                <table className="table is-striped is-hoverable is-bordered">
+                <table className="table is-striped is-hoverable is-bordered is-fullwidth">
                     <thead>
                         <tr>
                             <th>ID</th>

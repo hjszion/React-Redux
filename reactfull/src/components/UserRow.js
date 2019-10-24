@@ -5,10 +5,17 @@ class UserRow extends Component {
 
     state = {
         isEdit = false,
-        EditUser: {...this.props.User}
+        EditUser: { ...this.props.User }
     }
 
-    handlerChange = (e) => {}
+    handlerChange = (e) => {
+        this.setState({
+            EditUser:{
+                ...this.state.EditUser,
+                [e.target.name]: e.target.type === 'checkbox '? e.target.checked : e.target.value
+            }
+        });
+    }
 
     render() {
         let { User } = this.props;
@@ -25,11 +32,9 @@ class UserRow extends Component {
                             <td>DeleteOrNot<input onChange={this.handlerChange} type="checkbox" name="Del" value={EditUser.Del} /></td>
                             <td><input onChange={this.handlerChange} type="checkbox" name="Remark" value={EditUser.Remark} /></td>
                             <td>
-                                <button className="button is-primary">Edit</button>
+                                <button onClick={() => this.setState({isEdit:true})} className="button is-primary">Save</button>
                                 &nbsp;
-                                <Popconfirm title="Sure Delete?" okText="Delete" cancelText="Cancel" onConfirm={() => this.props.delUser(User.Id)}>
-                                    <button className="button is-danger">DELETE</button>
-                                </Popconfirm>
+                                <button onClick={() => this.setState({isEdit:false})} className="button is-danger">Cancel</button>
                             </td>
                         </Fragment>
                         :
