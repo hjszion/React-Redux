@@ -22,25 +22,31 @@ class UserList extends Component {
 
     componentDidMount() {
         //加载数据
-        axios.get('http://yapi.demo.qunar.com/mock/14782/api/test/raw/:id/%7Bname%7D')
+        axios.get('http://localhost:3009/userlist')
             .then(res => {
                 //把data放到store.state里面去
                 console.log(res.data)
 
                 //向store发送一个action 加载用户数据
-                store.dispatch(UserListActionCreators.LoadUserListAction(res.data.data.userlist))
+                store.dispatch(UserListActionCreators.LoadUserListAction(res.data))
             });
     }
 
     delUser = (id) => {
-        axios.delete('http://yapi.demo.qunar.com/mock/14782/api/test/raw/:id/%7Bname%7D/' + id)
+        // axios.delete('http://localhost:3009/userlist/'+ id)
+        // .then(res => {
+        //     //提示删除成功 把redux中的数据移除掉 
+        //     message.info('Delete Success!');
+        //     store.dispatch(UserListActionCreators.RemoveUserAction(id));         
+        // })
+        // .catch(() => {
+        //     message.error('Delete Failed! Try again!');
+        // })
+        store.dispatch(UserListActionCreators.RemoveUserAsyncAction(id))
         .then(res => {
-            //提示删除成功 把redux中的数据移除掉 
-            message.info('Delete Success!');
-            store.dispatch(UserListActionCreators.RemoveUserAction(id));         
-        })
-        .catch(() => {
-            message.error('Delete Failed! Try again!');
+            message.info('delete success!');
+        }).catch(() => {
+            message.error('delete failed! Try Again!');
         })
     }
 
@@ -63,7 +69,7 @@ class UserList extends Component {
                     <tbody>
                         {this.state.UserList.map((item, index) => (
                             <tr key={index}>
-                                <td>{item.id}</td>
+                                <td>{item.Id}</td>
                                 <td>{item.UserName}</td>
                                 <td>{item.Address}</td>
                                 <td>{item.Phone}</td>
@@ -72,7 +78,7 @@ class UserList extends Component {
                                 <td>
                                     <button className="button is-primary">Edit</button>
                                     &nbsp;
-                                    <Popconfirm title="Sure Delete?" okText="delete" cancelText="cancel" onConfirm={() => this.delUser(item.id)}>
+                                    <Popconfirm title="Sure Delete?" okText="delete" cancelText="cancel" onConfirm={() => this.delUser(item.Id)}>
                                         <button
                                             className="button is-danger">Delete</button>
                                     </Popconfirm>
