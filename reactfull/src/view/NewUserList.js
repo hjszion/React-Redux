@@ -13,7 +13,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        loadUserList: () => dispatch(UserListActionCreators.LoadUserListAsyncAction())
+        loadUserList: () => dispatch(UserListActionCreators.LoadUserListAsyncAction()),
+        delUser:(id) => dispatch(UserListActionCreators.RemoveUserAsyncAction(id))
     };
 }
 
@@ -40,7 +41,7 @@ class NewUserList extends Component {
                     </thead>
                     <tbody>
                         {
-                            this.props.UserList.map((item, index) => <UserRow key={index} User={item}></UserRow>)
+                            this.props.UserList.map((item, index) => <UserRow delUser={this.props.delUser} key={index} User={item}></UserRow>)
                         }
                     </tbody>
                 </table>

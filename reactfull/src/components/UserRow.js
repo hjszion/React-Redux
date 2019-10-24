@@ -15,7 +15,7 @@ class UserRow extends Component {
                 <td>
                     <button className="button is-primary">Edit</button>
                     &nbsp;
-                    <Popconfirm title="Sure Delete?" okText="Delete">
+                    <Popconfirm title="Sure Delete?" okText="Delete" cancelText="Cancel" onConfirm={() => this.props.delUser(User.Id)}>
                         <button className="button is-danger">DELETE</button>
                     </Popconfirm>
                 </td>
