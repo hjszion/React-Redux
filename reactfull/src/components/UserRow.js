@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Popconfirm } from 'antd';
+import { Popconfirm, antd, message } from 'antd';
 
 class UserRow extends Component {
 
@@ -32,7 +32,12 @@ class UserRow extends Component {
                             <td>DeleteOrNot<input onChange={this.handlerChange} type="checkbox" name="Del" checked={EditUser.Del} /></td>
                             <td><input onChange={this.handlerChange} type="checkbox" name="Remark" value={EditUser.Remark} /></td>
                             <td>
-                                <button onClick={() => this.props.updateUser(EditUser)} className="button is-primary">Save</button>
+                                <button 
+                                onClick={() => this.props.updateUser(EditUser).then(
+                                    res => {message.info('edit success'); 
+                                    this.setState({isEdit:false})}).catch(
+                                        () => {message.error('edit failed, try again!')})} 
+                                className="button is-primary">Save</button>
                                 &nbsp;
                                 <button onClick={() => this.setState({isEdit:false})} className="button is-danger">Cancel</button>
                             </td>

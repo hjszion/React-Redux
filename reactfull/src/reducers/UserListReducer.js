@@ -9,11 +9,9 @@ export default function UserListReducer(preState = [], action){
         case UserListActionTypes.REMOVE_USER:
             return preState.filter(item => item.Id !== action.payload)
         case UserListActionTypes.UPDATE_USER:
-            const replaceIndex = preState.findIndex(item => item.Id === action.Id)
+            const replaceIndex = preState.findIndex(item => item.Id === action.payload.Id)
             return [...preState];   //reducer 处理完成之后都会返回一个新的状态
         default:
             return preState;
     }
 }
-
-

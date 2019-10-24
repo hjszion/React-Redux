@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { UserListActionCreators } from '../actions/UserListAction';
 import UserRow from '../components/UserRow';
+import AddUser from '../components/AddUser';
 
 function mapStateToProps(state) {
     return {
@@ -27,6 +28,7 @@ class NewUserList extends Component {
     render() {
         return (
             <div>
+                <AddUser></AddUser>
                 <h3 className="title">UserList</h3>
                 <table className="table is-striped is-hoverable is-bordered is-fullwidth">
                     <thead>
