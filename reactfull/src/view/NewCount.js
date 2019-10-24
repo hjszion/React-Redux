@@ -1,52 +1,46 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { UserListActionCreators } from '../actions/UserListAction';
-import UserRow from '../components/UserRow';
-import AddUser from '../components/AddUser';
 
+import { NumActionCreators } from '../actions/NumAction';
+
+// 把容器组件的状态映射到UI组件的props里面去。  state是redux里面的状态数据。
 function mapStateToProps(state) {
   return {
-    UserList: state.UserList
+    WebSite: 'aicoder.com',
+    Num: state.Num
   };
 }
 
+// dispatch 是redux中的分发action的api函数。
+// 事件逻辑都是放在这里，映射给UI组件的方法。
 function mapDispatchToProps(dispatch) {
   return {
-    loadUserList: () => dispatch(UserListActionCreators.LoadUserListAsyncAction()),
-    delUser: (id) => dispatch(UserListActionCreators.RemoveUserAsyncAction(id)),
-    updateUser: (user) => dispatch(UserListActionCreators.UpdateUserAsynAction(user)),
-    addUser: (user) => dispatch(UserListActionCreators.AddUserAsynAction(user))
+    addNum(num) {
+      dispatch(NumActionCreators.AddActionCreator(num));
+    },
+    minusNum(num) {
+      dispatch(NumActionCreators.MinusActionCreator(num));
+    }
   };
 }
 
-class NewUserList extends Component {
-  constructor(props) {
-    super(props);
-    this.props.loadUserList();
-  }
+// UI 组件负责展示逻辑和事件绑定
+class NewCount extends Component {
   render() {
     return (
       <div>
-        <h3 className="title">用户列表</h3>
-        <AddUser addUser={ this.props.addUser }></AddUser>
-        <table className="table is-striped is-hoverable is-bordered is-fullwidth">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>用户名</th>
-              <th>地址</th>
-              <th>电话</th>
-              <th>是否删除</th>
-              <th>备注</th>
-              <th>编辑</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              this.props.UserList.map( (item, index) => <UserRow updateUser={ this.props.updateUser } saveUser={ this.props.saveUser } delUser={ this.props.delUser } key={index} User={item}></UserRow>)
-            }
-          </tbody>
-        </table>
+        <p>
+          这是来自我们自己的状态： { this.props.WebSite }
+        </p>
+        <p>
+          拿到Redux里面的数据状态： { this.props.Num }
+        </p>
+        <button
+          onClick={ () => this.props.addNum(1) }
+        >+1</button>
+        <button
+          onClick={ () => this.props.minusNum(1) }
+        >-1</button>
       </div>
     );
   }
@@ -55,4 +49,4 @@ class NewUserList extends Component {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(NewUserList);
+)(NewCount);

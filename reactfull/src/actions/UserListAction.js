@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 export const UserListActionTypes = {
   LOAD_USERLIST: 'LOAD_USERLIST',
   ADD_USER: 'ADD_USER',
