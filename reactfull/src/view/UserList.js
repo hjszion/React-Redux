@@ -42,6 +42,7 @@ class UserList extends Component {
         // .catch(() => {
         //     message.error('Delete Failed! Try again!');
         // })
+        
         store.dispatch(UserListActionCreators.RemoveUserAsyncAction(id))
         .then(res => {
             message.info('delete success!');
