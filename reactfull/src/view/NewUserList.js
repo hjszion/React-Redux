@@ -3,27 +3,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { UserListActionCreators } from '../actions/UserListAction';
+import UserRow from '../components/UserRow';
 
 function mapStateToProps(state) {
     return {
-        UserList:state.UserList
+        UserList: state.UserList
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        loadUserList:() => dispatch(UserListActionCreators.LoadUserListAsyncAction())
+        loadUserList: () => dispatch(UserListActionCreators.LoadUserListAsyncAction())
     };
 }
 
 class NewUserList extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.props.loadUserList();
     }
     render() {
         return (
-                <div>
+            <div>
                 <h3 className="title">UserList</h3>
                 <table className="table is-striped is-hoverable is-bordered">
                     <thead>
@@ -39,23 +40,7 @@ class NewUserList extends Component {
                     </thead>
                     <tbody>
                         {
-                            this.props.UserList.map((item, index) => 
-                            <tr>
-                                <td>{item.Id}</td>
-                                <td>{item.UserName}</td>
-                                <td>{item.Address}</td>
-                                <td>{item.Phone}</td>
-                                <td>{item.Del ? 'yes' : 'no'}</td>
-                                <td>{item.Remark}</td>
-                                <td>
-                                    <button className="button is-primary">Edit</button>
-                                    &nbsp;
-                                    <Popconfirm title="Sure Delete?" okText="delete" cancelText="cancel" onConfirm={() => this.delUser(item.Id)}>
-                                        <button
-                                            className="button is-danger">Delete</button>
-                                    </Popconfirm>
-                                </td>
-                            </tr>)
+                            this.props.UserList.map((item, index) => <UserRow key={index} User={item}></UserRow>)
                         }
                     </tbody>
                 </table>
