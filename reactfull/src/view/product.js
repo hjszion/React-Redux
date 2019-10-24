@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link, Route } from 'react-router-dom';
-import  PorductDetail from  './PorductDetail';
+import  PorductDetail from  './ProductDetail';
 
 class Product extends Component {
   render () {
@@ -35,3 +35,4 @@ class Product extends Component {
 }
 
 export default Product
+
