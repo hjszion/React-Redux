@@ -23,12 +23,6 @@ export const UserListActionCreators = {
         });
     }
   },
-  AddUserAction(payload) {
-    return {
-      type: UserListActionTypes.ADD_USER,
-      payload
-    }
-  },
   RemoveUserAction(payload) {
     return {
       type: UserListActionTypes.REMOVE_USER,
@@ -58,6 +52,12 @@ export const UserListActionCreators = {
           // 修改redux里面的数据
           dispatch(this.UpdateUserAction(res.data));
         })
+    }
+  },
+  AddUserAction(payload) {
+    return {
+      type: UserListActionTypes.ADD_USER,
+      payload
     }
   },
   AddUserAsynAction(payload) {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link, Route, Switch } from 'react-router-dom';
 import Logo from '../assets/logo.png';
+
 import About from './About';
 import Product from './Product';
 import Count from './Count';
@@ -21,7 +22,7 @@ class Home extends Component {
     })
   }
   logout = () => {
-    // 清楚sessionStorage里面的用户登录的信息。
+    // 清除sessionStorage里面的用户登录的信息。
     sessionStorage.clear();
     this.props.history.push('/login');
   }

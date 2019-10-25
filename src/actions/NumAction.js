@@ -8,7 +8,7 @@ export const NumActionTypes = {
   REPLACE_NUM: 'REPLACE_NUM'
 }
 
-// 创建一个Action对象的辅助方法。
+// 创建一个Action对象集合的辅助方法。
 export const NumActionCreators = {
   AddActionCreator(payload) {
     return {
