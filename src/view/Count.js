@@ -37,7 +37,7 @@ class Count extends Component {
   render () {
     return (
       <div>
-        <h3>store中的num数据是： { this.state.Num } </h3>
+        <h3>num data in the store： { this.state.Num } </h3>
         <hr/>
         <input
           onClick={ this.addNum }

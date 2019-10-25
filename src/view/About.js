@@ -16,7 +16,7 @@ class About extends Component {
 
         <input 
           onClick={ () => this.setState({login: false})}
-          type="button" value="登出，跳转到首页"/>
+          type="button" value="Logout, To Home Page"/>
 
         { !this.state.login && <Redirect to="/"></Redirect> }
         <p>

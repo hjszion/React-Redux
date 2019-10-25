@@ -37,16 +37,16 @@ class Home extends Component {
           </div>
           <div className="navbar-menu">
             <div className="navbar-start">
-              <Link className="navbar-item" to="/app">首页</Link>
-              <Link className="navbar-item" to={ `${match.path}/product` }>产品</Link>
-              <Link className="navbar-item" to={ `${match.path}/cases` }>成功案例</Link>
-              <Link className="navbar-item" to={ `${match.path}/about` }>关于</Link>
+              <Link className="navbar-item" to="/app">Home</Link>
+              <Link className="navbar-item" to={ `${match.path}/product` }>Produc</Link>
+              <Link className="navbar-item" to={ `${match.path}/cases` }>SuccessCases</Link>
+              <Link className="navbar-item" to={ `${match.path}/about` }>About</Link>
             </div>
             <div className="navbar-end">
               <button
                 onClick={ this.logout }
                 className="button is-danger"
-              >登出
+              >LogOut
               </button>
             </div>
           </div>
