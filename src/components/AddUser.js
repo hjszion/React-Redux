@@ -32,46 +32,46 @@ class AddUser extends Component {
       <div>
         <button
           onClick={ () => this.setState({visible: true}) }
-         className="button is-warning">添加</button>
+         className="button is-warning">Add</button>
         <Modal
-          title="添加用户"
-          okText="添加"
-          cancelText="取消"
+          title="AddUser"
+          okText="Add"
+          cancelText="Cancel"
           visible={ this.state.visible }
           onCancel={ () => this.setState({visible: false})}
           onOk={ 
             () => this.props.addUser(this.getAddUser())
                       .then(res => {
-                        message.info('添加成功！');
+                        message.info('AddSuccess');
                         this.setState({visible: false})
                       })
                       .catch(() => {
-                        message.error('添加失败！请重试！');
+                        message.error('AddFailed, Try Again!');
                       })
           }
         >
           <table className="table is-fullwidth">
             <tbody>
               <tr>
-                <td>用户名</td>
+                <td>UserName</td>
                 <td>
                   <input type="text" name="UserName" onChange={ this.handlerChange } value={ this.state.UserName }/>
                 </td>
               </tr>
               <tr>
-                <td>地址</td>
+                <td>Address</td>
                 <td>
                   <input type="text" name="Address" onChange={ this.handlerChange } value={ this.state.Address }/>
                 </td>
               </tr>
               <tr>
-                <td>电话</td>
+                <td>Phone</td>
                 <td>
                   <input type="text" name="Phone" onChange={ this.handlerChange } value={ this.state.Phone }/>
                 </td>
               </tr>
               <tr>
-                <td>备注</td>
+                <td>Remark</td>
                 <td>
                   <textarea type="text" name="Remark" onChange={ this.handlerChange } value={ this.state.Remark }>
                   </textarea>

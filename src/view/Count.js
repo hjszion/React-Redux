@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { NumActionCreators as ActionCreators } from '../actions/NumAction';
 import store from '../store';
+
 class Count extends Component {
   constructor(props, context) {
     super(props, context);

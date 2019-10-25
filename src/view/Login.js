@@ -21,7 +21,7 @@ class Login extends Component {
         <hr/>
         <button 
           onClick={this.loginClick}
-          className="button is-primary">登录</button>
+          className="button is-primary">LogIn</button>
       </div>
     )
   }

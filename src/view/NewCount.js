@@ -30,10 +30,10 @@ class NewCount extends Component {
     return (
       <div>
         <p>
-          这是来自我们自己的状态： { this.props.WebSite }
+          This is the state from us: { this.props.WebSite }
         </p>
         <p>
-          拿到Redux里面的数据状态： { this.props.Num }
+          This is the state from redux: { this.props.Num }
         </p>
         <button
           onClick={ () => this.props.addNum(1) }

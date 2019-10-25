@@ -27,18 +27,18 @@ class NewUserList extends Component {
   render() {
     return (
       <div>
-        <h3 className="title">用户列表</h3>
+        <h3 className="title">UserList</h3>
         <AddUser addUser={ this.props.addUser }></AddUser>
         <table className="table is-striped is-hoverable is-bordered is-fullwidth">
           <thead>
             <tr>
               <th>ID</th>
-              <th>用户名</th>
-              <th>地址</th>
-              <th>电话</th>
-              <th>是否删除</th>
-              <th>备注</th>
-              <th>编辑</th>
+              <th>UserName</th>
+              <th>Address</th>
+              <th>Phone</th>
+              <th>DelOrNot</th>
+              <th>Remark</th>
+              <th>Edit</th>
             </tr>
           </thead>
           <tbody>

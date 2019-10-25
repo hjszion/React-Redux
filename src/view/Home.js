@@ -38,7 +38,7 @@ class Home extends Component {
           <div className="navbar-menu">
             <div className="navbar-start">
               <Link className="navbar-item" to="/app">Home</Link>
-              <Link className="navbar-item" to={ `${match.path}/product` }>Produc</Link>
+              <Link className="navbar-item" to={ `${match.path}/product` }>Product</Link>
               <Link className="navbar-item" to={ `${match.path}/cases` }>SuccessCases</Link>
               <Link className="navbar-item" to={ `${match.path}/about` }>About</Link>
             </div>
@@ -55,14 +55,14 @@ class Home extends Component {
         {/* 网站主要内容区域 */}
         <main className="columns">
           <div className="menu-list column is-one-fifth has-background-info">
-              <Link className="navbar-item" to="/app">首页</Link>
-              <Link className="navbar-item" to={ `${match.path}/product` }>产品</Link>
-              <Link className="navbar-item" to={ `${match.path}/cases` }>成功案例</Link>
+              <Link className="navbar-item" to="/app">Home</Link>
+              <Link className="navbar-item" to={ `${match.path}/product` }>Product</Link>
+              <Link className="navbar-item" to={ `${match.path}/cases` }>SuccessCases</Link>
               <Link className="navbar-item" to={ `${match.path}/count` }>Count</Link>
               <Link className="navbar-item" to={ `${match.path}/newcount` }>NewCount</Link>
-              <Link className="navbar-item" to={ `${match.path}/about` }>关于</Link>
-              <Link className="navbar-item" to={ `${match.path}/userlist` }>用列表管理</Link>
-              <Link className="navbar-item" to={ `${match.path}/newuserlist` }>New用列表管理</Link>
+              <Link className="navbar-item" to={ `${match.path}/about` }>About</Link>
+              <Link className="navbar-item" to={ `${match.path}/userlist` }>UserListManagement</Link>
+              <Link className="navbar-item" to={ `${match.path}/newuserlist` }>NewUserListManagement</Link>
           </div>
           <div className="column has-background-primary">
             <Switch>
@@ -75,8 +75,8 @@ class Home extends Component {
               <Route render={ () => {
                 return (
                   <div className="hero">
-                    <h3 className="title">欢迎您访问aicoder.com</h3>
-                    <p className="subtitle">您的访问将是我们的荣耀！</p>
+                    <h3 className="title">Welcome Visit Us!</h3>
+                    <p className="subtitle">Your visit will be our glory!</p>
                   </div>
                 )
               }}></Route>
@@ -84,7 +84,7 @@ class Home extends Component {
           </div>
         </main>
         <div className="footer has-backgroud-light">
-          版权所有@aicoder.com  ={ this.state.Num }=
+          Copyright@google.com  ={ this.state.Num }=
         </div>
       </div>
     )

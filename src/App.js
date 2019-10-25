@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { HashRouter as Router, Link, Route, Redirect, Switch } from 'react-router-dom';
 import Login from './view/Login';
-import Eempty from './view/Eempty';
+import Empty from './view/Empty';
 import Home from './view/Home';
 import 'antd/dist/antd.css';
 
@@ -29,7 +29,7 @@ class App extends Component {
             sessionStorage.setItem('APP_LAST_URL', JSON.stringify(props.location));
             return <Redirect to="/login"></Redirect>
           }}></Route>
-          <Route component={Eempty}></Route>
+          <Route component={Empty}></Route>
         </Switch>
       </Router>
     )

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link, Route } from 'react-router-dom';
-import  PorductDetail from  './PorductDetail';
+import  ProductDetail from  './ProductDetail';
 
 class Product extends Component {
   render () {
@@ -15,20 +15,20 @@ class Product extends Component {
           :
           null
         } */}
-        <Link to={`${match.path}/1`}>产品1</Link> |
-        <Link to={`${match.path}/2`}>产品2</Link> |
-        <Link to={`${match.path}/3`}>产品3</Link>
+        <Link to={`${match.path}/1`}>Product-1</Link> |
+        <Link to={`${match.path}/2`}>Product-2</Link> |
+        <Link to={`${match.path}/3`}>Product-3</Link>
         <hr/>
 
-        <Route path={`${match.path}/:id`} component={ PorductDetail }>
+        <Route path={`${match.path}/:id`} component={ ProductDetail }>
         </Route>
         <hr/>
         <button
           onClick={ () => this.props.history.push('/about') }
-        >按钮跳转到About</button>
+        >ToAboutPage</button>
         <button
           onClick={ () => this.props.history.go(-1) }
-        >后退</button>
+        >Backward</button>
       </div>
     )
   }

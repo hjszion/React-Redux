@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Popconfirm } from 'antd';
 import { message } from 'antd';
+
 class UserRow extends Component {
   
   state = {
@@ -29,25 +30,25 @@ class UserRow extends Component {
               <td> <input onChange={ this.hanlderChange } type="text" name="UserName" value={ EditUser.UserName } /></td>
               <td> <input onChange={ this.hanlderChange } type="text" name="Address" value={ EditUser.Address } /></td>
               <td> <input onChange={ this.hanlderChange } type="text" name="Phone" value={ EditUser.Phone } /></td>
-              <td> 是否删除 <input onChange={ this.hanlderChange } type="checkbox" name="Del" checked={ EditUser.Del } /></td>
+              <td> Delete Or Not <input onChange={ this.hanlderChange } type="checkbox" name="Del" checked={ EditUser.Del } /></td>
               <td> <input onChange={ this.hanlderChange } type="text" name="Remark" value={ EditUser.Remark } /></td>
               <td>
                 <button className="button is-primary"
                   onClick={ () => this.props
                     .updateUser(EditUser) 
                     .then(res => {
-                      message.info('修改成功！');
+                      message.info('Edit Success');
                       this.setState({isEdit: false});
                     })
                     .catch( () => {
-                      message.error('修改异常，请重试！');
+                      message.error('Edit Failed, Try Again!');
                     })
                   }
-                >保存</button>
+                >Save</button>
                 &nbsp;
                 <button className="button is-danger"
                   onClick={ () => this.setState({isEdit: false})}
-                >取消</button>
+                >Cancel</button>
               </td>
              </Fragment>
            :
@@ -56,20 +57,20 @@ class UserRow extends Component {
               <td>{ User.UserName }</td>
               <td>{ User.Address }</td>
               <td>{ User.Phone }</td>
-              <td>{ User.Del ? '是' : '否' }</td>
+              <td>{ User.Del ? 'yes' : 'no' }</td>
               <td>{ User.Remark }</td>
               <td>
                 <button 
                   onClick={ () => this.setState({isEdit: true})}
-                  className="button is-primary">编辑</button>
+                  className="button is-primary">Edit</button>
                 &nbsp;
                 <Popconfirm 
-                  title="您确认要删除吗？"
-                  okText="删除"
-                  cancelText="取消"
+                  title="Sure to Delete?"
+                  okText="Delete"
+                  cancelText="Cancel"
                   onConfirm={ () => this.props.delUser(User.Id) }
                 >
-                  <button className="button is-danger">删除</button>
+                  <button className="button is-danger">Delete</button>
                 </Popconfirm>
               </td>
             </Fragment>
