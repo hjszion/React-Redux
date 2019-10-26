@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Popconfirm } from 'antd';
-import { message } from 'antd';
+import { Popconfirm, message } from 'antd';
 
 class UserRow extends Component {
   
