@@ -34,7 +34,7 @@ class Home extends Component {
         {/* 网站顶部导航 */}
         <nav className="navbar">
           <div className="navbar-band">
-            <Link to="/app"><img src={Logo} alt="aicoder.com官网" width="130" title="有利于网站的SEO" /></Link>
+            <Link to="/app"><img src={Logo} alt="google.com" width="130" title="Good4SEO" /></Link>
           </div>
           <div className="navbar-menu">
             <div className="navbar-start">
@@ -85,7 +85,7 @@ class Home extends Component {
           </div>
         </main>
         <div className="footer has-backgroud-light">
-          Copyright@google.com  ={ this.state.Num }=
+          Copyright@google.com  CurrentNum is: { this.state.Num }
         </div>
       </div>
     )
