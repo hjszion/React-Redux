@@ -69,7 +69,7 @@ class UserList extends Component {
               <td>
                 <button className="button is-primary">Edit</button>
                 &nbsp;
-                <Popconfirm title="您确认要删除吗？" okText="DELETE" cancelText="Cancel" onConfirm={ () => this.delUser(item.Id) }>
+                <Popconfirm title="Sure To Delete?" okText="DELETE" cancelText="Cancel" onConfirm={ () => this.delUser(item.Id) }>
                   <button 
                     className="button is-danger">Delete</button>
                 </Popconfirm>
