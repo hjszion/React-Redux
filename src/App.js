@@ -8,7 +8,7 @@ import 'antd/dist/antd.css';
 class App extends Component {
   checkUserState() {
     // 判断用户是否已经登录
-    if(sessionStorage.getItem('APP_LOGIN_USER')) {
+    if(sessionStorage.getItem('APP_LOGIN_USER')) {    //APP_LOGIN_USER 定义在Login.js中
       return true;
     }
     return false;
@@ -19,6 +19,7 @@ class App extends Component {
       <Router>
         <Switch>
           <Route path="/" exact render={ () => <Redirect to="/app"></Redirect> }></Route>
+          {/* <Route path="/:user" component={Login}></Route>  path=/:xxx 代表匹配任意路径 */}
           <Route path="/login" component={Login}></Route>
           <Route path="/app" render={ (props) => {
             //校验用户是否已经登录
