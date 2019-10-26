@@ -7,7 +7,7 @@ export default function  UserListReducer(preState = [], action) {
     case UserListActionTypes.ADD_USER:
       return [...preState, action.payload]
     case UserListActionTypes.REMOVE_USER:
-      return preState.filter(item => item.Id !== action.payload)
+      return preState.filter(item => item.Id !== action.payload)   //payload = User.Id
     case UserListActionTypes.UPDATE_USER: 
       // action里面的payload要修改的用户的id
       const replaceIndex = preState.findIndex(item => item.Id === action.payload.Id)
@@ -17,3 +17,4 @@ export default function  UserListReducer(preState = [], action) {
       return preState;
   }
 }
+

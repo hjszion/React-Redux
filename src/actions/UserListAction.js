@@ -29,11 +29,11 @@ export const UserListActionCreators = {
       payload
     }
   },
-  RemoveUserAsyncAction(payload) {
+  RemoveUserAsyncAction(payload) {   //payload = User.Id
     return function (dispatch, getState) {
       return axios.delete('http://localhost:3009/userlist/'+ payload)
       .then(res => {
-        // 提升删除成功！，把redux中的数据移除掉
+        // 提示删除成功！，把redux中的数据移除掉
         dispatch(UserListActionCreators.RemoveUserAction(payload));
       });
     }
@@ -44,7 +44,7 @@ export const UserListActionCreators = {
       payload
     }
   },
-  UpdateUserAsynAction(payload) {
+  UpdateUserAsynAction(payload) {   //payload = item
     return (dispatch, getState) => {
       return axios
         .put('http://localhost:3009/userlist/'+ payload.Id, payload)
