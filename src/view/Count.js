@@ -28,7 +28,7 @@ class Count extends Component {
   }
 
   minusNum = () => {
-    store.dispatch(ActionCreators.MinusActionCreator(1));
+    store.dispatch(ActionCreators.MinusActionCreator(1));   //payload=1
   }
 
   replaceNum = () => {
@@ -51,7 +51,7 @@ class Count extends Component {
         <input
           onClick={ this.replaceNum }
           className="button is-info"
-          type="button" value="替换值"/>
+          type="button" value="Repalce-Value"/>
       </div>
     )
   }
