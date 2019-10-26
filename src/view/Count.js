@@ -24,7 +24,7 @@ class Count extends Component {
 
   addNum = () => {
     // 通过store触发一个 加1的action
-    store.dispatch(ActionCreators.AddActionCreator(1))
+    store.dispatch(ActionCreators.AddActionCreator(1))   //payload=1
   }
 
   minusNum = () => {
