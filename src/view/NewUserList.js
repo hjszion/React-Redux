@@ -4,9 +4,9 @@ import { UserListActionCreators } from '../actions/UserListAction';
 import UserRow from '../components/UserRow';
 import AddUser from '../components/AddUser';
 
-function mapStateToProps(state) {
+function mapStateToProps(state) {   //输入逻辑 外部的数据(state对象) 如何转换为UI组件的参数
   return {
-    UserList: state.UserList,
+    UserList: state.UserList,   //因为 外部有<Provider /> 组件 所以即使在很深的层级 也可以拿到state
   };
 }
 
