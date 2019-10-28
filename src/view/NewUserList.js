@@ -57,8 +57,4 @@ export default connect(
   mapDispatchToProps
 )(NewUserList);
 
-//由于setState是异步的 
-this.setState({ ...this.state, foo: 42 });
-this.setState({ ...this.state, isBar: true });
-//这样的情况下 第一次设置的foo值会被第二次的设置覆盖而还原
 
