@@ -12,7 +12,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {   //这里就对应redux-thunk中间件的store.dispatch(fn(dispatch, getState)) 外层的 dispatch
   return {
-    loadUserList: () => dispatch(UserListActionCreators.LoadUserListAsyncAction()),
+    loadUserList: () => dispatch(UserListActionCreators.LoadUserListAsyncAction()),  //fn 就是这里的 .xxxUserAsyncAction()
     delUser: (id) => dispatch(UserListActionCreators.RemoveUserAsyncAction(id)),
     updateUser: (user) => dispatch(UserListActionCreators.UpdateUserAsynAction(user)),
     addUser: (user) => dispatch(UserListActionCreators.AddUserAsynAction(user))
