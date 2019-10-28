@@ -22,7 +22,7 @@ function mapDispatchToProps(dispatch) {   //这里就对应redux-thunk中间件�
 class NewUserList extends Component {
   constructor(props) {
     super(props);
-    this.props.loadUserList();   //加载组件的同时就开始 .loadUser()以获得当前json-server上储存的data 每次都会重新渲染
+    this.props.loadUserList();   //加载组件的同时就开始自动执行.loadUser()以获得当前json-server上储存的data 每次都会重新渲染
   }
   render() {
     return (
