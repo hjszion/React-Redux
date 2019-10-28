@@ -44,7 +44,7 @@ export const UserListActionCreators = {
       payload
     }
   },
-  UpdateUserAsynAction(payload) {   //payload = item
+  UpdateUserAsynAction(payload) {   //payload = Item
     return (dispatch, getState) => {
       return axios
         .put('http://localhost:3009/userlist/'+ payload.Id, payload)
@@ -60,7 +60,7 @@ export const UserListActionCreators = {
       payload
     }
   },
-  AddUserAsynAction(payload) {
+  AddUserAsynAction(payload) {   //payload = item
     return (dispatch, getState) => 
       axios.post('http://localhost:3009/userlist', payload)
       .then(res => dispatch(this.AddUserAction(res.data)))
