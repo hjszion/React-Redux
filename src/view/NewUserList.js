@@ -6,7 +6,8 @@ import AddUser from '../components/AddUser';
 
 function mapStateToProps(state) {
   return {
-    UserList: state.UserList
+    UserList: state.UserList,
+    Username: state.UserName
   };
 }
 
@@ -56,3 +57,5 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(NewUserList);
+
+export default console();
